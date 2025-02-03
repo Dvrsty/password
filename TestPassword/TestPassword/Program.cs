@@ -9,18 +9,35 @@ const int ivFlag = 8;
 const int iterations = 8;
 
 Console.WriteLine("Input 1 to encrypt, input 2 to decrypt");
+string inputType = Console.ReadLine();
 
-Console.Write("Enter a string to encrypt: ");
-string originalString = Console.ReadLine();
+if (inputType == "1")
+{
 
-Console.Write("Enter a password: ");
-string password = Console.ReadLine();
+    Console.Write("Enter a string to encrypt: ");
+    string originalString = Console.ReadLine();
 
-string encryptedString = EncryptString(originalString, password);
-Console.WriteLine($"Encrypted string: {encryptedString}");
+    Console.Write("Enter a password: ");
+    string password = Console.ReadLine();
 
-string decryptedString = DecryptString(encryptedString, password);
-Console.WriteLine($"Decrypted string: {decryptedString}");
+    string encryptedString = EncryptString(originalString, password);
+    Console.WriteLine($"Encrypted string: {encryptedString}");
+}
+else if (inputType == "2")
+{
+    Console.Write("Enter a string to decrypt: ");
+    string encryptedString = Console.ReadLine();
+
+    Console.Write("Enter a password: ");
+    string password = Console.ReadLine();
+
+    string decryptedString = DecryptString(encryptedString, password);
+    Console.WriteLine($"Decrypted string: {decryptedString}");
+}
+else
+{
+    Console.WriteLine("error");
+}
 
 // 等待用户输入后退出程序
 Console.WriteLine("Press any key to exit...");
