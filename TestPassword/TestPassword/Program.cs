@@ -8,6 +8,8 @@ const int keyFlag = 8;
 const int ivFlag = 8;
 const int iterations = 8;
 
+Console.WriteLine("Input 1 to encrypt, input 2 to decrypt");
+
 Console.Write("Enter a string to encrypt: ");
 string originalString = Console.ReadLine();
 
