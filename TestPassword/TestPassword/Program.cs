@@ -3,12 +3,19 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-const string saltIsGood = "SaltIsGood";
-const int keyFlag = 8;
-const int ivFlag = 8;
-const int iterations = 8;
+Console.Write("请输入盐值：");
+string saltIsGood = Console.ReadLine()?.Trim();
 
-Console.WriteLine("Input 1 to encrypt, input 2 to decrypt");
+Console.Write("请输入迭代次数：");
+int iterations = int.Parse(Console.ReadLine()?.Trim());
+
+Console.Write("请输入 KeyFlag：");
+int keyFlag = int.Parse(Console.ReadLine()?.Trim());
+
+Console.Write("请输入 IVFlag：");
+int ivFlag = int.Parse(Console.ReadLine()?.Trim());
+
+Console.WriteLine("Enter 1 to encrypt, enter 2 to decrypt");
 string inputType = Console.ReadLine();
 
 if (inputType == "1")
@@ -43,7 +50,7 @@ else
 Console.WriteLine("Press any key to exit...");
 Console.ReadKey();
 
-static string EncryptString(string plainText, string password)
+string EncryptString(string plainText, string password)
 {
     using (var aes = Aes.Create())
     {
@@ -64,7 +71,7 @@ static string EncryptString(string plainText, string password)
     }
 }
 
-static string DecryptString(string cipherText, string password)
+string DecryptString(string cipherText, string password)
 {
     using (var aes = Aes.Create())
     {
